@@ -60,7 +60,9 @@ namespace OCMS_Project
 
         private void printReport_Box_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Print_CS print = new Print_CS();
+            print.Show();
         }
     }
 }

@@ -83,6 +83,12 @@
     <Compile Include="OCMS_Form.Designer.cs">
       <DependentUpon>OCMS_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Print_CS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print_CS.Designer.cs">
+      <DependentUpon>Print_CS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrar_form.cs">
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OCMS_Form.resx">
       <DependentUpon>OCMS_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print_CS.resx">
+      <DependentUpon>Print_CS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
