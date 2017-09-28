@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F42A2436-0423-415E-8BB6-7199FF694D7A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OCMS_Project</RootNamespace>
+    <AssemblyName>OCMS_Project</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeviceMgmr_Add_CS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceMgmr_Add_CS.Designer.cs">
+      <DependentUpon>DeviceMgmr_Add_CS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceMgmr_CS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceMgmr_CS.Designer.cs">
+      <DependentUpon>DeviceMgmr_CS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceMgmr_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceMgmr_Edit.Designer.cs">
+      <DependentUpon>DeviceMgmr_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fix_FormCS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fix_FormCS.Designer.cs">
+      <DependentUpon>Fix_FormCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OCMS_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OCMS_Form.Designer.cs">
+      <DependentUpon>OCMS_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_form.Designer.cs">
+      <DependentUpon>Registrar_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_2.Designer.cs">
+      <DependentUpon>SP_2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DeviceMgmr_Add_CS.resx">
+      <DependentUpon>DeviceMgmr_Add_CS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceMgmr_CS.resx">
+      <DependentUpon>DeviceMgmr_CS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceMgmr_Edit.resx">
+      <DependentUpon>DeviceMgmr_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fix_FormCS.resx">
+      <DependentUpon>Fix_FormCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OCMS_Form.resx">
+      <DependentUpon>OCMS_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Registrar_form.resx">
+      <DependentUpon>Registrar_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_2.resx">
+      <DependentUpon>SP_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registrar_banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintain_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dev_mgr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\see_device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPLASH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPLASH1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPLASH2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_device.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
