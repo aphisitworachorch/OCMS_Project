@@ -31,16 +31,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.save_reg = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.expire_date = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.import_date = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.device_type = new System.Windows.Forms.ComboBox();
+            this.serial_num = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.device_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,16 +59,16 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.save_reg);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.expire_date);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.import_date);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.device_type);
+            this.groupBox2.Controls.Add(this.serial_num);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.device_name);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 15);
             this.groupBox2.Name = "groupBox2";
@@ -86,14 +86,15 @@
             this.button2.Text = "ล้างทั้งหมด";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // save_reg
             // 
-            this.button1.Location = new System.Drawing.Point(10, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 33);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "บันทึก";
-            this.button1.UseVisualStyleBackColor = true;
+            this.save_reg.Location = new System.Drawing.Point(10, 231);
+            this.save_reg.Name = "save_reg";
+            this.save_reg.Size = new System.Drawing.Size(110, 33);
+            this.save_reg.TabIndex = 10;
+            this.save_reg.Text = "บันทึก";
+            this.save_reg.UseVisualStyleBackColor = true;
+            this.save_reg.Click += new System.EventHandler(this.save_reg_Click);
             // 
             // label5
             // 
@@ -104,12 +105,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "วันที่หมดอายุ";
             // 
-            // dateTimePicker2
+            // expire_date
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(10, 202);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(247, 20);
-            this.dateTimePicker2.TabIndex = 8;
+            this.expire_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.expire_date.Location = new System.Drawing.Point(10, 202);
+            this.expire_date.Name = "expire_date";
+            this.expire_date.Size = new System.Drawing.Size(247, 20);
+            this.expire_date.TabIndex = 8;
             // 
             // label4
             // 
@@ -120,12 +122,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "วันที่นำเข้า";
             // 
-            // dateTimePicker1
+            // import_date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 160);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(247, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.import_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.import_date.Location = new System.Drawing.Point(10, 160);
+            this.import_date.Name = "import_date";
+            this.import_date.Size = new System.Drawing.Size(247, 20);
+            this.import_date.TabIndex = 6;
             // 
             // label3
             // 
@@ -136,20 +139,27 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "ประเภทอุปกรณ์";
             // 
-            // comboBox1
+            // device_type
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(247, 21);
-            this.comboBox1.TabIndex = 4;
+            this.device_type.FormattingEnabled = true;
+            this.device_type.Items.AddRange(new object[] {
+            "Tablet",
+            "Laptop",
+            "PC",
+            "Server",
+            "Network Instrument",
+            "Other"});
+            this.device_type.Location = new System.Drawing.Point(10, 78);
+            this.device_type.Name = "device_type";
+            this.device_type.Size = new System.Drawing.Size(247, 21);
+            this.device_type.TabIndex = 4;
             // 
-            // textBox2
+            // serial_num
             // 
-            this.textBox2.Location = new System.Drawing.Point(10, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 20);
-            this.textBox2.TabIndex = 3;
+            this.serial_num.Location = new System.Drawing.Point(10, 119);
+            this.serial_num.Name = "serial_num";
+            this.serial_num.Size = new System.Drawing.Size(247, 20);
+            this.serial_num.TabIndex = 3;
             // 
             // label2
             // 
@@ -160,12 +170,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "หมายเลขเครื่อง";
             // 
-            // textBox1
+            // device_name
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 20);
-            this.textBox1.TabIndex = 1;
+            this.device_name.Location = new System.Drawing.Point(10, 37);
+            this.device_name.Name = "device_name";
+            this.device_name.Size = new System.Drawing.Size(247, 20);
+            this.device_name.TabIndex = 1;
             // 
             // label1
             // 
@@ -185,6 +195,7 @@
             this.Name = "DeviceMgmr_Add_CS";
             this.Text = "Device Query";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeviceMgmr_Add_CS_FormClosing);
+            this.Load += new System.EventHandler(this.DeviceMgmr_Add_CS_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -197,16 +208,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button save_reg;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker expire_date;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker import_date;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox device_type;
+        private System.Windows.Forms.TextBox serial_num;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox device_name;
         private System.Windows.Forms.Label label1;
     }
 }
