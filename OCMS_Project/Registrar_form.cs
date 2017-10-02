@@ -26,8 +26,14 @@ namespace OCMS_Project
 
         private void Registrar_form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try { 
             LoginPage_cs main = new LoginPage_cs();
             main.Show();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception", "Error");
+            }
         }
 
         private void name_reg_TextChanged(object sender, EventArgs e)
@@ -62,12 +68,12 @@ namespace OCMS_Project
 
             if (password_Weak <= 20)
             {
-                password_leak_indc.Text = "Weak";
+                password_leak_indc.Text = "อ่อน";
                 progressBar1.Value = 50;
             }
             else if (password_Weak >= 100)
             {
-                password_leak_indc.Text = "Strong";
+                password_leak_indc.Text = "ใช้ได้";
                 progressBar1.Value = 100;
             }
             else if (password_Weak == 0)
@@ -85,6 +91,11 @@ namespace OCMS_Project
 
         private void save_Button_Click(object sender, EventArgs e)
         {
+            if(name_reg.Text.Length <= 0 || surname_reg.Text.Length <= 0 || username_reg.Text.Length <=0 || password_reg.Text.Length <= 0)
+            {
+                MessageBox.Show("มีบางสิ่งบางอย่างขาดหายนะ กรุณาตรวจสอบให้ถูกต้องก่อนกดลงทะเบียน", "เตือน");
+            }
+            try { 
             SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
             _connect1.Open();
 
@@ -94,7 +105,18 @@ namespace OCMS_Project
 
             reg_cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Register Completed !");
+            MessageBox.Show("ลงทะเบียนสำเร็จ คุณคือ " + name_reg.Text);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Database Entering Error , \nPlease Check Carefully !");
+            }
+
+        }
+
+        private void common_box_Enter(object sender, EventArgs e)
+        {
 
         }
     }

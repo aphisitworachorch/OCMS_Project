@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +89,12 @@
     <Compile Include="Fix_FormCS.Designer.cs">
       <DependentUpon>Fix_FormCS.cs</DependentUpon>
     </Compile>
+    <Compile Include="FullPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullPrint.Designer.cs">
+      <DependentUpon>FullPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +106,12 @@
     </Compile>
     <Compile Include="OCMS_Form.Designer.cs">
       <DependentUpon>OCMS_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintMaintain.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintMaintain.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Print_CS.cs">
       <SubType>Form</SubType>
@@ -115,11 +145,18 @@
     <EmbeddedResource Include="Fix_FormCS.resx">
       <DependentUpon>Fix_FormCS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FullPrint.resx">
+      <DependentUpon>FullPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OCMS_Form.resx">
       <DependentUpon>OCMS_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintMaintain.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintMaintain.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Print_CS.resx">
       <DependentUpon>Print_CS.cs</DependentUpon>
@@ -191,6 +228,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit_device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPLASH3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPLASH4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

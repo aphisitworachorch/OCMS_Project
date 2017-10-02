@@ -88,6 +88,7 @@
             this.common_box.TabIndex = 1;
             this.common_box.TabStop = false;
             this.common_box.Text = "Common Information";
+            this.common_box.Enter += new System.EventHandler(this.common_box_Enter);
             // 
             // reset_Button
             // 

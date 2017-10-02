@@ -34,7 +34,7 @@ namespace OCMS_Project
             SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\device_db.mdf;Integrated Security=True;Connect Timeout=30");
             _connect1.Open();
 
-            string dev = "INSERT INTO device_db(device_name , device_type , serial_num , import_date , expire_date) VALUES ('" + device_name.Text + "' , '" + this.device_type.GetItemText(this.device_type.SelectedItem) + "' , '" + serial_num.Text + "' , '" + this.import_date.Text + "' , '" + this.expire_date.Text + "')";
+            string dev = "INSERT INTO device_db(device_name , device_type , serial_num , import_date , expire_date , time_save) VALUES ('" + device_name.Text + "' , '" + this.device_type.GetItemText(this.device_type.SelectedItem) + "' , '" + serial_num.Text + "' , '" + this.import_date.Text + "' , '" + this.expire_date.Text + "' , '" + DateTime.Now + "')";
 
             SqlCommand reg_cmd = new SqlCommand(dev, _connect1);
 

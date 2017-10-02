@@ -52,7 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::OCMS_Project.Properties.Resources.SPLASH2;
+            this.BackgroundImage = global::OCMS_Project.Properties.Resources.SPLASH4;
             this.ClientSize = new System.Drawing.Size(748, 397);
             this.Controls.Add(this.progressBar1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;

@@ -48,6 +48,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "พิมพ์ใบแจ้งซ่อมเดี๋ยวนี้";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Print_CS
             // 
@@ -59,6 +60,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "Print_CS";
             this.Text = "Print Maintenance Bill";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Print_CS_FormClosed);
             this.ResumeLayout(false);
 
         }

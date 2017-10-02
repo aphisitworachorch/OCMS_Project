@@ -25,7 +25,6 @@ namespace OCMS_Project
 
         private void SP_2_Load(object sender, EventArgs e)
         {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

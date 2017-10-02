@@ -16,5 +16,16 @@ namespace OCMS_Project
         {
             InitializeComponent();
         }
+
+        private void Print_CS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            OCMS_Form main2 = new OCMS_Form();
+            main2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,30 +39,66 @@ namespace OCMS_Project
 
         private void OCMS_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try { 
             this.Hide();
             LoginPage_cs login = new LoginPage_cs();
             login.Show();
+            } catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception","Error");
+            }
         }
 
         private void maintain_Box_Click(object sender, EventArgs e)
         {
+            try { 
             this.Hide();
             Fix_FormCS fxfrm = new Fix_FormCS();
             fxfrm.Show();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception", "Error");
+            }
         }
 
         private void DeviceMgmr_Box_Click(object sender, EventArgs e)
         {
+            try {
             this.Hide();
             DeviceMgmr_CS devmgr = new DeviceMgmr_CS();
             devmgr.Show();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception", "Error");
+            }
         }
 
         private void printReport_Box_Click(object sender, EventArgs e)
         {
+            try { 
             this.Hide();
             Print_CS print = new Print_CS();
             print.Show();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception", "Error");
+            }
+        }
+
+        private void Logout_Box_Click(object sender, EventArgs e)
+        {
+            try {
+            this.Hide();
+            LoginPage_cs main = new OCMS_Project.LoginPage_cs();
+            main.Show();
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Error : Divide By Zero Exception", "Error");
+            }
         }
     }
 }

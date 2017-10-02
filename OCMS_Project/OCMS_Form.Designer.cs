@@ -76,6 +76,7 @@
             this.Logout_Box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Logout_Box.TabIndex = 3;
             this.Logout_Box.TabStop = false;
+            this.Logout_Box.Click += new System.EventHandler(this.Logout_Box_Click);
             // 
             // maintain_Box
             // 
@@ -127,6 +128,7 @@
             this.Name = "OCMS_Form";
             this.Text = "MAIN :: Organization Computer Maintenance System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OCMS_Form_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OCMS_Form_FormClosed);
             this.Load += new System.EventHandler(this.OCMS_Form_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DeviceMgmr_Box)).EndInit();

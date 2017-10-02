@@ -68,17 +68,35 @@ namespace OCMS_Project
         {
             this.Hide();
             Registrar_form reg = new Registrar_form();
-                reg.Show();
+            reg.Show();
         }
 
         private void LoginPage_cs_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            try
+            {
+                Application.Exit();
+            } catch(InvalidOperationException)
+            {
+                MessageBox.Show("Invalid Operation Error ! Please Check Carefully");
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoginPage_cs_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.Exit();
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Invalid Operation Error ! Please Check Carefully");
+            }
         }
     }
 }

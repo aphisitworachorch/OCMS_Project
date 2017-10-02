@@ -22,5 +22,10 @@ namespace OCMS_Project
             DeviceMgmr_CS devmain = new OCMS_Project.DeviceMgmr_CS();
             devmain.Show();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
