@@ -61,6 +61,7 @@
             this.Name = "Print_CS";
             this.Text = "Print Maintenance Bill";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Print_CS_FormClosed);
+            this.Load += new System.EventHandler(this.Print_CS_Load);
             this.ResumeLayout(false);
 
         }

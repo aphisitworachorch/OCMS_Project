@@ -26,6 +26,7 @@ namespace OCMS_Project
 
         private void Registrar_form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Hide();
             try { 
             LoginPage_cs main = new LoginPage_cs();
             main.Show();
@@ -53,33 +54,43 @@ namespace OCMS_Project
 
         private void password_reg_TextChanged(object sender, EventArgs e)
         {
-            if(password_reg.Text.Length <= 5)
+            try
             {
-                password_Weak = 20;
-            } else if(password_reg.Text.Length >= 10)
-            {
-                password_Weak = 100;
-            } else
-            {
-                password_Weak = 0;
-            }
+                if (password_reg.Text.Length <= 5)
+                {
+                    password_Weak = 20;
+                }
+                else if (password_reg.Text.Length >= 10)
+                {
+                    password_Weak = 100;
+                }
+                else if (password_reg.Text.Length > 10)
+                {
+                    MessageBox.Show("Password Too Long");   
+                } else
+                {
+                    password_Weak = 0;
+                }
 
-            /* Password Check */
+                /* Password Check */
 
-            if (password_Weak <= 20)
+                progressBar1.Value = password_reg.Text.Length * 9;
+
+                if (password_Weak <= 20)
+                {
+                    password_leak_indc.Text = "อ่อน";
+                }
+                else if (password_Weak >= 100)
+                {
+                    password_leak_indc.Text = "ใช้ได้";
+                }
+                else if (password_Weak == 0)
+                {
+                    password_leak_indc.Text = "NULL";
+                }
+            } catch (System.ArgumentOutOfRangeException)
             {
-                password_leak_indc.Text = "อ่อน";
-                progressBar1.Value = 50;
-            }
-            else if (password_Weak >= 100)
-            {
-                password_leak_indc.Text = "ใช้ได้";
-                progressBar1.Value = 100;
-            }
-            else if (password_Weak == 0)
-            {
-                password_leak_indc.Text = "NULL";
-                progressBar1.Value = 0;
+                MessageBox.Show("Your Password Length is so long !");
             }
 
         }
@@ -95,6 +106,7 @@ namespace OCMS_Project
             {
                 MessageBox.Show("มีบางสิ่งบางอย่างขาดหายนะ กรุณาตรวจสอบให้ถูกต้องก่อนกดลงทะเบียน", "เตือน");
             }
+
             try { 
             SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
             _connect1.Open();
@@ -105,7 +117,7 @@ namespace OCMS_Project
 
             reg_cmd.ExecuteNonQuery();
 
-            MessageBox.Show("ลงทะเบียนสำเร็จ คุณคือ " + name_reg.Text);
+                MessageBox.Show("ลงทะเบียนสำเร็จ คุณคือ " + name_reg.Text + " " + surname_reg.Text );
 
             }
             catch (Exception)

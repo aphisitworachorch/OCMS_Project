@@ -17,6 +17,32 @@ namespace OCMS_Project
             InitializeComponent();
         }
 
+
+        private String uname;
+
+        public String Uname
+        {
+            get { return uname; }
+            set { uname = value; }
+        }
+
+        private String lname;
+
+        public String Lname
+        {
+            get { return lname; }
+            set { lname = value; }
+        }
+
+        private String usr;
+
+        public String Usr
+        {
+            get { return usr; }
+            set { usr = value; }
+        }
+
+
         private void DeviceMgmr_Edit_FormClosing(object sender, FormClosingEventArgs e)
         {
             DeviceMgmr_CS devmain = new OCMS_Project.DeviceMgmr_CS();
@@ -24,6 +50,11 @@ namespace OCMS_Project
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeviceMgmr_Edit_Load(object sender, EventArgs e)
         {
 
         }

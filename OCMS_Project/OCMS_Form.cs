@@ -18,10 +18,35 @@ namespace OCMS_Project
             InitializeComponent();
         }
 
+        private String uname;
+
+        public String Uname
+        {
+            get { return uname; }
+            set { uname = value; }
+        }
+
+        private String lname;
+
+        public String Lname
+        {
+            get { return lname; }
+            set { lname = value; }
+        }
+
+        private String usr;
+
+        public String Usr
+        {
+            get { return usr; }
+            set { usr = value; }
+        }
+
         private void OCMS_Form_Load(object sender, EventArgs e)
         {
             timer1.Start();
             clockText.Text = DateTime.Now.ToString("hh:mm:ss");
+            label1.Text = "Welcome " + uname + " " + lname;
         }
 
         private void clockText_Click(object sender, EventArgs e)
@@ -51,9 +76,12 @@ namespace OCMS_Project
 
         private void maintain_Box_Click(object sender, EventArgs e)
         {
-            try { 
-            this.Hide();
+            try {
             Fix_FormCS fxfrm = new Fix_FormCS();
+            fxfrm.Uname = uname.Trim();
+            fxfrm.Lname = lname.Trim();
+            fxfrm.Usr = usr.Trim();
+            this.Hide();
             fxfrm.Show();
             }
             catch (DivideByZeroException)
@@ -65,8 +93,11 @@ namespace OCMS_Project
         private void DeviceMgmr_Box_Click(object sender, EventArgs e)
         {
             try {
-            this.Hide();
             DeviceMgmr_CS devmgr = new DeviceMgmr_CS();
+            devmgr.Uname = uname.Trim();
+            devmgr.Lname = lname.Trim();
+            devmgr.Usr = usr.Trim();
+            this.Hide();
             devmgr.Show();
             }
             catch (DivideByZeroException)
@@ -77,10 +108,11 @@ namespace OCMS_Project
 
         private void printReport_Box_Click(object sender, EventArgs e)
         {
-            try { 
-            this.Hide();
-            Print_CS print = new Print_CS();
-            print.Show();
+            try
+            {
+                this.Hide();
+                Print_CS print = new Print_CS();
+                print.Show();
             }
             catch (DivideByZeroException)
             {

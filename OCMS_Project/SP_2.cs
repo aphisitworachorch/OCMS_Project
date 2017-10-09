@@ -15,12 +15,22 @@ namespace OCMS_Project
     {
         public SP_2()
         {
-            InitializeComponent();
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 10;
-            SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
+            try
+            {
+                InitializeComponent();
 
-            timer1.Start();
+                timer1.Start();
+
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 10;
+                SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
+
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+                MessageBox.Show("Exception Just in Time ! , Please Restart Application");
+                Application.ExitThread();
+            }
         }
 
         private void SP_2_Load(object sender, EventArgs e)

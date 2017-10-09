@@ -67,6 +67,7 @@
             this.Name = "DeviceMgmr_CS";
             this.Text = "Device Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeviceMgmr_CS_FormClosing);
+            this.Load += new System.EventHandler(this.DeviceMgmr_CS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

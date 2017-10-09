@@ -36,6 +36,7 @@
             this.printReport_Box = new System.Windows.Forms.PictureBox();
             this.clockText = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DeviceMgmr_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logout_Box)).BeginInit();
@@ -116,11 +117,21 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.OCMS_Form_Load);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(415, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 6;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // OCMS_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 246);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.clockText);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -149,5 +160,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label clockText;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }

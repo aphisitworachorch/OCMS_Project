@@ -17,6 +17,23 @@ namespace OCMS_Project
             InitializeComponent();
         }
 
+        private String uname;
+
+        public String Uname
+        {
+            get { return uname; }
+            set { uname = value; }
+        }
+
+        private String lname;
+
+        public String Lname
+        {
+            get { return lname; }
+            set { lname = value; }
+        }
+
+
         private void Print_CS_FormClosed(object sender, FormClosedEventArgs e)
         {
             OCMS_Form main2 = new OCMS_Form();
@@ -24,6 +41,11 @@ namespace OCMS_Project
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Print_CS_Load(object sender, EventArgs e)
         {
 
         }
