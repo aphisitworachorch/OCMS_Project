@@ -33,6 +33,14 @@ namespace OCMS_Project
             set { lname = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
 
         private void Print_CS_FormClosed(object sender, FormClosedEventArgs e)
         {

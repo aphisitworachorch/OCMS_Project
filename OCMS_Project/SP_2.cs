@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace OCMS_Project
 {
@@ -41,6 +42,8 @@ namespace OCMS_Project
             }
             catch (System.Threading.ThreadAbortException)
             {
+                st = "Error Was Catched by Programmer";
+                status_box.Items.Add(st);
                 MessageBox.Show("Exception Just in Time ! , Please Restart Application");
                 Application.ExitThread();
             }
@@ -53,6 +56,8 @@ namespace OCMS_Project
             }
             catch (System.Threading.ThreadAbortException)
             {
+                st = "Error Was Catched by Programmer";
+                status_box.Items.Add(st);
                 MessageBox.Show("Exception Just in Time ! , Please Restart Application");
                 Application.ExitThread();
             }

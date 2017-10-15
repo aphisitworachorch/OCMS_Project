@@ -42,6 +42,14 @@ namespace OCMS_Project
             set { usr = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
         private void OCMS_Form_Load(object sender, EventArgs e)
         {
             timer1.Start();
@@ -98,6 +106,7 @@ namespace OCMS_Project
                 devmgr.Uname = uname;
                 devmgr.Lname = lname;
                 devmgr.Usr = usr;
+                devmgr.priv = upv;
                 this.Hide();
                 devmgr.Show();
             }

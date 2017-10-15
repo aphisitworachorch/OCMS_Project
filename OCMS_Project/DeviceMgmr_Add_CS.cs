@@ -42,12 +42,21 @@ namespace OCMS_Project
             set { usr = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
         private void DeviceMgmr_Add_CS_FormClosing(object sender, FormClosingEventArgs e)
         {
             DeviceMgmr_CS devmain = new OCMS_Project.DeviceMgmr_CS();
             devmain.Uname = uname;
             devmain.Lname = lname;
             devmain.Usr = usr;
+            devmain.priv = upv;
             devmain.Show();
         }
 

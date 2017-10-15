@@ -47,6 +47,14 @@ namespace OCMS_Project
             set { usr = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
         private void Fix_FormCS_Load(object sender, EventArgs e)
         {
             try

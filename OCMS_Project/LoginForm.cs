@@ -18,6 +18,7 @@ namespace OCMS_Project
         private String fullname;
         private String lastname;
         private String userlogin;
+        private String userpv;
         public int i;
         public LoginPage_cs()
         {
@@ -27,9 +28,9 @@ namespace OCMS_Project
 
                 splash.Start();
 
-                InitializeComponent();
-
                 Thread.Sleep(5000);
+
+                InitializeComponent();
 
                 Console.WriteLine("Complete");
 
@@ -47,7 +48,6 @@ namespace OCMS_Project
             try
             {
                 Application.Run(new SP_2());
-                splash.Abort();
             } catch(System.Threading.ThreadAbortException)
             {
                 Thread.ResetAbort();
@@ -56,7 +56,13 @@ namespace OCMS_Project
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            try
+            {
 
+            } catch (System.Threading.ThreadAbortException)
+            {
+                Thread.ResetAbort();
+            }
         }
 
         private void reset_button_Click(object sender, EventArgs e)
@@ -90,6 +96,7 @@ namespace OCMS_Project
                     main.Uname = fullname;
                     main.Lname = lastname;
                     main.Usr = userlogin;
+                    main.upv = userpv;
                     main.Show();
                 }
                 else
@@ -111,7 +118,7 @@ namespace OCMS_Project
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
             try
             {
-                String query = "SELECT name AS name_sql, surname AS surname_sql, username AS username_sql FROM login WHERE username = @username";
+                String query = "SELECT name AS name_sql, surname AS surname_sql, username AS username_sql , user_privilege AS up FROM login WHERE username = @username";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@username", username);
@@ -122,6 +129,7 @@ namespace OCMS_Project
                     fullname = rdr["name_sql"].ToString();
                     lastname = rdr["surname_sql"].ToString();
                     userlogin = rdr["username_sql"].ToString();
+                    userpv = rdr["up"].ToString();
                 }
             }
             catch (Exception)

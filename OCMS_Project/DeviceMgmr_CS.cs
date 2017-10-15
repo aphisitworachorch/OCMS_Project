@@ -41,6 +41,14 @@ namespace OCMS_Project
             set { usr = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
         private void DeviceMgmr_CS_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -60,6 +68,7 @@ namespace OCMS_Project
             devadd.Uname = uname;
             devadd.Lname = lname;
             devadd.Usr = usr;
+            devadd.priv = upv;
             this.Hide();
             devadd.Show();
             }
@@ -76,6 +85,7 @@ namespace OCMS_Project
             devedit.Uname = uname;
             devedit.Lname = lname;
             devedit.Usr = usr;
+            devedit.priv = upv;
             this.Hide();
             devedit.Show();
             }
@@ -89,7 +99,14 @@ namespace OCMS_Project
         {
             try
             {
-
+                if(upv == "user")
+                {
+                    this.Size = new Size(240, 225);
+                    pictureBox2.Hide();
+                } else if (upv == "admin") {
+                    this.Size = new Size(371, 225);
+                    pictureBox2.Show();
+                }
             }
             catch (System.NullReferenceException)
             {
@@ -105,6 +122,7 @@ namespace OCMS_Project
                 main.Uname = uname;
                 main.Lname = lname;
                 main.Usr = usr;
+                main.priv = upv;
                 main.Show();
                 this.Hide();
             }

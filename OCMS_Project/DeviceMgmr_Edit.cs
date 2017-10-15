@@ -42,6 +42,14 @@ namespace OCMS_Project
             set { usr = value; }
         }
 
+        public String priv;
+
+        public String upv
+        {
+            get { return priv; }
+            set { priv = value; }
+        }
+
 
         private void DeviceMgmr_Edit_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -49,6 +57,7 @@ namespace OCMS_Project
             devmain.Uname = uname;
             devmain.Lname = lname;
             devmain.Usr = usr;
+            devmain.priv = upv;
             devmain.Show();
         }
 
