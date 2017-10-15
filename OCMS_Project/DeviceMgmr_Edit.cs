@@ -46,6 +46,9 @@ namespace OCMS_Project
         private void DeviceMgmr_Edit_FormClosing(object sender, FormClosingEventArgs e)
         {
             DeviceMgmr_CS devmain = new OCMS_Project.DeviceMgmr_CS();
+            devmain.Uname = uname;
+            devmain.Lname = lname;
+            devmain.Usr = usr;
             devmain.Show();
         }
 

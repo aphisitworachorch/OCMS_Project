@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrar_form));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.all_box = new System.Windows.Forms.GroupBox();
             this.common_box = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.usercheckbox = new System.Windows.Forms.CheckBox();
+            this.admincheckbox = new System.Windows.Forms.CheckBox();
             this.reset_Button = new System.Windows.Forms.Button();
             this.save_Button = new System.Windows.Forms.Button();
             this.password_leak_indc = new System.Windows.Forms.Label();
@@ -46,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.all_box.SuspendLayout();
             this.common_box.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -63,13 +68,14 @@
             this.all_box.Controls.Add(this.common_box);
             this.all_box.Location = new System.Drawing.Point(13, 83);
             this.all_box.Name = "all_box";
-            this.all_box.Size = new System.Drawing.Size(280, 337);
+            this.all_box.Size = new System.Drawing.Size(280, 399);
             this.all_box.TabIndex = 1;
             this.all_box.TabStop = false;
             this.all_box.Text = "Information";
             // 
             // common_box
             // 
+            this.common_box.Controls.Add(this.groupBox1);
             this.common_box.Controls.Add(this.reset_Button);
             this.common_box.Controls.Add(this.save_Button);
             this.common_box.Controls.Add(this.password_leak_indc);
@@ -84,15 +90,46 @@
             this.common_box.Controls.Add(this.name_reg);
             this.common_box.Location = new System.Drawing.Point(11, 19);
             this.common_box.Name = "common_box";
-            this.common_box.Size = new System.Drawing.Size(254, 302);
+            this.common_box.Size = new System.Drawing.Size(254, 366);
             this.common_box.TabIndex = 1;
             this.common_box.TabStop = false;
             this.common_box.Text = "Common Information";
             this.common_box.Enter += new System.EventHandler(this.common_box_Enter);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.usercheckbox);
+            this.groupBox1.Controls.Add(this.admincheckbox);
+            this.groupBox1.Location = new System.Drawing.Point(11, 194);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(232, 64);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "สิทธิผู้ใช้";
+            // 
+            // usercheckbox
+            // 
+            this.usercheckbox.AutoSize = true;
+            this.usercheckbox.Location = new System.Drawing.Point(63, 39);
+            this.usercheckbox.Name = "usercheckbox";
+            this.usercheckbox.Size = new System.Drawing.Size(101, 17);
+            this.usercheckbox.TabIndex = 1;
+            this.usercheckbox.Text = "ผู้ใช้งานธรรมดา";
+            this.usercheckbox.UseVisualStyleBackColor = true;
+            // 
+            // admincheckbox
+            // 
+            this.admincheckbox.AutoSize = true;
+            this.admincheckbox.Location = new System.Drawing.Point(51, 19);
+            this.admincheckbox.Name = "admincheckbox";
+            this.admincheckbox.Size = new System.Drawing.Size(128, 17);
+            this.admincheckbox.TabIndex = 0;
+            this.admincheckbox.Text = "ผู้ดูและระบบ/ฝ่ายซ่อม";
+            this.admincheckbox.UseVisualStyleBackColor = true;
+            // 
             // reset_Button
             // 
-            this.reset_Button.Location = new System.Drawing.Point(142, 265);
+            this.reset_Button.Location = new System.Drawing.Point(141, 326);
             this.reset_Button.Name = "reset_Button";
             this.reset_Button.Size = new System.Drawing.Size(100, 23);
             this.reset_Button.TabIndex = 11;
@@ -101,7 +138,7 @@
             // 
             // save_Button
             // 
-            this.save_Button.Location = new System.Drawing.Point(12, 265);
+            this.save_Button.Location = new System.Drawing.Point(11, 326);
             this.save_Button.Name = "save_Button";
             this.save_Button.Size = new System.Drawing.Size(100, 23);
             this.save_Button.TabIndex = 10;
@@ -113,7 +150,7 @@
             // 
             this.password_leak_indc.AutoSize = true;
             this.password_leak_indc.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.password_leak_indc.Location = new System.Drawing.Point(87, 200);
+            this.password_leak_indc.Location = new System.Drawing.Point(86, 261);
             this.password_leak_indc.Name = "password_leak_indc";
             this.password_leak_indc.Size = new System.Drawing.Size(79, 33);
             this.password_leak_indc.TabIndex = 9;
@@ -157,7 +194,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(13, 236);
+            this.progressBar1.Location = new System.Drawing.Point(12, 297);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(229, 23);
             this.progressBar1.TabIndex = 4;
@@ -200,10 +237,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 430);
+            this.ClientSize = new System.Drawing.Size(303, 494);
             this.Controls.Add(this.all_box);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Registrar_form";
             this.Text = "Register";
@@ -213,6 +251,8 @@
             this.all_box.ResumeLayout(false);
             this.common_box.ResumeLayout(false);
             this.common_box.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -234,5 +274,8 @@
         private System.Windows.Forms.TextBox password_reg;
         private System.Windows.Forms.Label username_banner;
         private System.Windows.Forms.TextBox username_reg;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox usercheckbox;
+        private System.Windows.Forms.CheckBox admincheckbox;
     }
 }

@@ -14,31 +14,44 @@ namespace OCMS_Project
 {
     public partial class LoginPage_cs : Form
     {
+        static Thread splash = null;
         private String fullname;
         private String lastname;
         private String userlogin;
-
+        public int i;
         public LoginPage_cs()
         {
             try
             {
-                Thread t = new Thread(new ThreadStart(Splash));
-                t.Start();
-                Thread.Sleep(5000);
+                splash = new Thread(new ThreadStart(Splash));
+
+                splash.Start();
 
                 InitializeComponent();
 
-                t.Abort();
+                Thread.Sleep(5000);
+
+                Console.WriteLine("Complete");
+
+                splash.Abort();
+
             } catch (System.Threading.ThreadAbortException)
             {
-                MessageBox.Show("Exception Just in Time ! , Please Restart Application");
+                Thread.ResetAbort();
             }
         }
 
 
         public void Splash()
         {
-            Application.Run(new SP_2());
+            try
+            {
+                Application.Run(new SP_2());
+                splash.Abort();
+            } catch(System.Threading.ThreadAbortException)
+            {
+                Thread.ResetAbort();
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -54,33 +67,41 @@ namespace OCMS_Project
 
         private void login_button_Click(object sender, EventArgs e)
         {
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 10;
             try
             {
+                progressBar1.Style = ProgressBarStyle.Blocks;
                 SqlConnection _connect1 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
+                progressBar1.Value = 20;
                 SqlDataAdapter _datadp1 = new SqlDataAdapter("select count(*) from login where username ='" + username_Box.Text + "' and password='" + password_Box.Text + "'", _connect1);
                 DataTable credientals = new DataTable();
                 _datadp1.Fill(credientals);
+                progressBar1.Value = 50;
                 if (credientals.Rows[0][0].ToString() == "1")
                 {
-                    MessageBox.Show("Login Successful ! You're " + username_Box.Text);
-
+                    progressBar1.Value = 100;
+                    MessageBox.Show("Login Successful ! You're " + username_Box.Text , "Message From System");
                     this.Hide();
 
                     this.getTheName(username_Box.Text);
                     this.Hide();
-                    OCMS_Form main = new OCMS_Form();
-                    main.Uname = fullname.Trim();
-                    main.Lname = lastname.Trim();
-                    main.Usr = userlogin.Trim();
+                    OCMS_Form main = new OCMS_Project.OCMS_Form();
+                    main.Uname = fullname;
+                    main.Lname = lastname;
+                    main.Usr = userlogin;
                     main.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Invalid ! ");
+                    MessageBox.Show("Invalid ! ", "Message From System");
+                    progressBar1.Value = 0;
                 }
             } catch (System.NullReferenceException)
             {
-                MessageBox.Show("Error !");
+                MessageBox.Show("Error !", "Message From System");
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 3;
             }
         }
 
@@ -88,9 +109,9 @@ namespace OCMS_Project
         {
             username = username_Box.Text;
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\OCMS\db\crediental.mdf;Integrated Security=True;Connect Timeout=30");
-            String query = "SELECT name AS name_sql, surname AS surname_sql, username AS username_sql FROM login WHERE username = @username";
             try
             {
+                String query = "SELECT name AS name_sql, surname AS surname_sql, username AS username_sql FROM login WHERE username = @username";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@username", username);
@@ -105,6 +126,7 @@ namespace OCMS_Project
             }
             catch (Exception)
             {
+                MessageBox.Show("Error To Fetch ");
             }
             finally
             {
@@ -123,7 +145,7 @@ namespace OCMS_Project
         {
             try
             {
-                Application.Exit();
+                Application.ExitThread();
             } catch(InvalidOperationException)
             {
                 MessageBox.Show("Invalid Operation Error ! Please Check Carefully");
@@ -139,7 +161,6 @@ namespace OCMS_Project
         {
             try
             {
-                Application.Exit();
                 Application.ExitThread();
             }
             catch (InvalidOperationException)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage_cs));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.reg_Button = new System.Windows.Forms.Button();
             this.login_button = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.username_Box = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -45,6 +47,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.reg_Button);
             this.groupBox1.Controls.Add(this.login_button);
             this.groupBox1.Controls.Add(this.reset_button);
@@ -134,6 +137,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(190, 223);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(289, 13);
+            this.progressBar1.TabIndex = 6;
+            // 
             // LoginPage_cs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,6 +151,7 @@
             this.ClientSize = new System.Drawing.Size(517, 270);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginPage_cs";
             this.Text = "Login";
@@ -168,6 +179,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox username_Box;
         private System.Windows.Forms.Button reg_Button;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

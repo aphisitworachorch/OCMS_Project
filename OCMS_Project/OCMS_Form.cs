@@ -18,7 +18,7 @@ namespace OCMS_Project
             InitializeComponent();
         }
 
-        private String uname;
+        public String uname;
 
         public String Uname
         {
@@ -26,7 +26,7 @@ namespace OCMS_Project
             set { uname = value; }
         }
 
-        private String lname;
+        public String lname;
 
         public String Lname
         {
@@ -34,7 +34,7 @@ namespace OCMS_Project
             set { lname = value; }
         }
 
-        private String usr;
+        public String usr;
 
         public String Usr
         {
@@ -45,7 +45,7 @@ namespace OCMS_Project
         private void OCMS_Form_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            clockText.Text = DateTime.Now.ToString("hh:mm:ss");
+            clockText.Text = DateTime.Now.ToString("HH:mm:ss");
             label1.Text = "Welcome " + uname + " " + lname;
         }
 
@@ -66,7 +66,7 @@ namespace OCMS_Project
         {
             try { 
             this.Hide();
-            LoginPage_cs login = new LoginPage_cs();
+            LoginPage_cs login = new OCMS_Project.LoginPage_cs();
             login.Show();
             } catch (DivideByZeroException)
             {
@@ -77,10 +77,10 @@ namespace OCMS_Project
         private void maintain_Box_Click(object sender, EventArgs e)
         {
             try {
-            Fix_FormCS fxfrm = new Fix_FormCS();
-            fxfrm.Uname = uname.Trim();
-            fxfrm.Lname = lname.Trim();
-            fxfrm.Usr = usr.Trim();
+            Fix_FormCS fxfrm = new OCMS_Project.Fix_FormCS();
+            fxfrm.Uname = uname;
+            fxfrm.Lname = lname;
+            fxfrm.Usr = usr;
             this.Hide();
             fxfrm.Show();
             }
@@ -92,13 +92,14 @@ namespace OCMS_Project
 
         private void DeviceMgmr_Box_Click(object sender, EventArgs e)
         {
-            try {
-            DeviceMgmr_CS devmgr = new DeviceMgmr_CS();
-            devmgr.Uname = uname.Trim();
-            devmgr.Lname = lname.Trim();
-            devmgr.Usr = usr.Trim();
-            this.Hide();
-            devmgr.Show();
+            try
+            {
+                DeviceMgmr_CS devmgr = new OCMS_Project.DeviceMgmr_CS();
+                devmgr.Uname = uname;
+                devmgr.Lname = lname;
+                devmgr.Usr = usr;
+                this.Hide();
+                devmgr.Show();
             }
             catch (DivideByZeroException)
             {
@@ -111,7 +112,7 @@ namespace OCMS_Project
             try
             {
                 this.Hide();
-                Print_CS print = new Print_CS();
+                Print_CS print = new OCMS_Project.Print_CS();
                 print.Show();
             }
             catch (DivideByZeroException)

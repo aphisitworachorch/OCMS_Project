@@ -45,12 +45,7 @@ namespace OCMS_Project
         {
             try
             {
-                this.Hide();
-                OCMS_Form main = new OCMS_Form();
-                main.Uname = uname.Trim();
-                main.Lname = lname.Trim();
-                main.Usr = usr.Trim();
-                main.Show();
+
             } catch (System.NullReferenceException)
             {
                 MessageBox.Show("Internal Error");
@@ -61,10 +56,10 @@ namespace OCMS_Project
         {
             try
             { 
-            DeviceMgmr_Add_CS devadd = new DeviceMgmr_Add_CS();
-            devadd.Uname = uname.Trim();
-            devadd.Lname = lname.Trim();
-            devadd.Usr = usr.Trim();
+            DeviceMgmr_Add_CS devadd = new OCMS_Project.DeviceMgmr_Add_CS();
+            devadd.Uname = uname;
+            devadd.Lname = lname;
+            devadd.Usr = usr;
             this.Hide();
             devadd.Show();
             }
@@ -77,10 +72,10 @@ namespace OCMS_Project
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             try { 
-            DeviceMgmr_Edit devedit = new DeviceMgmr_Edit();
-            devedit.Uname = uname.Trim();
-            devedit.Lname = lname.Trim();
-            devedit.Usr = usr.Trim();
+            DeviceMgmr_Edit devedit = new OCMS_Project.DeviceMgmr_Edit();
+            devedit.Uname = uname;
+            devedit.Lname = lname;
+            devedit.Usr = usr;
             this.Hide();
             devedit.Show();
             }
@@ -95,6 +90,23 @@ namespace OCMS_Project
             try
             {
 
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Internal Error");
+            }
+        }
+
+        private void DeviceMgmr_CS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                OCMS_Form main = new OCMS_Project.OCMS_Form();
+                main.Uname = uname;
+                main.Lname = lname;
+                main.Usr = usr;
+                main.Show();
+                this.Hide();
             }
             catch (System.NullReferenceException)
             {
